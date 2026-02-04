@@ -5,6 +5,13 @@
 
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 80
 
+&mt {
+    quick-tap-ms = <300>;
+    flavor = "balanced";
+};
+
+&lt { quick-tap-ms = <300>; };
+
 / {
     behaviors {
         scroll_up_down: behavior_sensor_rotate_mouse_wheel_up_down {
@@ -26,16 +33,65 @@
         };
     };
 
+    combos {
+        compatible = "zmk,combos";
+
+        scroll {
+            bindings = <&mo 6>;
+            key-positions = <23 24>;
+        };
+
+        bs {
+            bindings = <&kp BACKSPACE>;
+            key-positions = <13 12>;
+        };
+
+        del {
+            bindings = <&kp DELETE>;
+            key-positions = <12 11>;
+        };
+
+        enter {
+            bindings = <&kp ENTER>;
+            key-positions = <25 24>;
+        };
+
+        esc {
+            bindings = <&kp ESC>;
+            key-positions = <2 3>;
+        };
+
+        tab {
+            bindings = <&kp TAB>;
+            key-positions = <14 15>;
+        };
+
+        s+tab {
+            bindings = <&kp LS(TAB)>;
+            key-positions = <26 27>;
+        };
+
+        lang2 {
+            bindings = <&kp LANGUAGE_2>;
+            key-positions = <17 16>;
+        };
+
+        lang1 {
+            bindings = <&kp LANGUAGE_1>;
+            key-positions = <22 23>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
         default_layer {
             bindings = <
 &kp ESCAPE   &kp BACKSPACE
-&kp Q        &kp W          &kp E         &kp R           &kp T        &mo 6             &kp BACKSLASH      &kp Y            &kp U         &kp I              &kp O    &kp P
-&kp A        &kp S          &kp D         &kp F           &kp G        &mo 6             &kp BACKSLASH      &kp H            &kp J         &kp K              &kp L    &kp SEMI
-&mt LSHFT Z  &kp X          &kp C         &kp V           &kp B        &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp N            &kp M         &kp COMMA          &kp DOT  &mt RSHFT SLASH
-&kp LCTRL    &kp LEFT_GUI   &kp LEFT_ALT  &kp LEFT_SHIFT  &lt 4 SPACE  &kp LG(SPACE)     &kp ENTER          &lt 3 BACKSPACE  &lt 2 ESCAPE  &kp RIGHT_BRACKET
+&kp Q        &kp W          &kp E         &kp R                  &kp T        &to 4           &tog 1               &kp Y        &kp U          &kp I      &kp O    &kp P
+&kp A        &kp S          &kp D         &kp F                  &kp G        &kp CAPS        &kp DELETE           &kp H        &kp J          &kp K      &kp L    &lt 7 SEMICOLON
+&mt LSHFT Z  &kp X          &kp C         &kp V                  &kp B        &kp LANGUAGE_2  &kp LANGUAGE_1       &kp N        &kp M          &kp COMMA  &kp DOT  &mt RSHFT SLASH
+&kp LCTRL    &kp LEFT_GUI   &kp LEFT_ALT  &mt LEFT_SHIFT ESCAPE  &lt 2 SPACE  &lt 7 TAB       &mt RCTRL BACKSPACE  &lt 3 ENTER  &kp RIGHT_ALT  &kp RMETA
             >;
 
             sensor-bindings = <
@@ -44,13 +100,13 @@
             >;
         };
 
-        MOUSE {
+        mac {
             bindings = <
-&trans     &trans
-&trans     &trans        &trans            &trans          &trans  &trans  &trans  &trans  &trans    &trans    &trans    &trans
-&trans     &trans        &trans            &trans          &trans  &trans  &trans  &trans  &mkp MB1  &mkp MB3  &mkp MB2  &trans
-&trans     &trans        &trans            &trans          &trans  &trans  &trans  &trans  &trans    &trans    &trans    &trans
-&kp LCTRL  &kp LEFT_ALT  &kp LEFT_COMMAND  &kp LEFT_SHIFT  &trans  &trans  &trans  &mo 3   &trans    &trans
+&trans    &trans
+&trans    &trans     &trans  &trans  &trans  &trans  &tog 1              &trans  &trans  &trans     &trans  &trans
+&trans    &trans     &trans  &trans  &trans  &trans  &trans              &trans  &trans  &trans     &trans  &trans
+&trans    &trans     &trans  &trans  &trans  &trans  &trans              &trans  &trans  &trans     &trans  &trans
+&kp LGUI  &kp LCTRL  &trans  &trans  &trans  &trans  &mt RGUI BACKSPACE  &trans  &trans  &kp RCTRL
             >;
 
             sensor-bindings = <
@@ -59,67 +115,35 @@
             >;
         };
 
-        SCROLL {
-            bindings = <
-&trans      &trans
-&kp ESCAPE  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans      &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&kp F12     &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&kp F12     &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-            >;
-
-            sensor-bindings = <
-                &inc_dec_kp RIGHT_ARROW LEFT_ARROW
-                &scroll_up_down
-            >;
-        };
-
-        ARROW {
-            bindings = <
-&trans     &trans
-&kp GRAVE  &kp LC(LS(TAB))         &kp LG(RIGHT)  &kp NUMBER_9             &kp NUMBER_0       &trans  &trans  &trans  &kp RC(LEFT_ARROW)  &kp UP_ARROW      &kp RC(RIGHT_ARROW)  &kp LG(P)
-&kp TAB    &kp LA(LG(LEFT_ARROW))  &kp LG(LEFT)   &kp LG(LA(RIGHT_ARROW))  &kp LEFT_BRACKET   &trans  &trans  &trans  &kp LEFT_ARROW      &kp DOWN_ARROW    &kp RIGHT_ARROW      &kp LG(K)
-&kp LCMD   &kp LG(LS(LEFT_ARROW))  &trans         &kp LG(LS(RIGHT_ARROW))  &kp RIGHT_BRACKET  &trans  &trans  &trans  &trans              &kp LC(UP_ARROW)  &trans               &kp LG(L)
-&trans     &trans                  &trans         &trans                   &trans             &trans  &trans  &trans  &trans              &trans
-            >;
-
-            sensor-bindings = <
-                &inc_dec_kp RIGHT_ARROW LEFT_ARROW
-                &scroll_up_down
-            >;
-        };
-
-        NUM {
-            bindings = <
-&trans                   &trans
-&kp GRAVE                &kp NUMBER_7  &kp NUMBER_8  &kp LG(LS(NUMBER_4))  &kp PLUS      &trans  &trans  &kp BACKSLASH    &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp SEMICOLON
-&kp SLASH                &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6          &kp ASTERISK  &trans  &trans  &kp EXCLAMATION  &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp SQT
-&mt LEFT_SHIFT NUMBER_0  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3          &kp PERIOD    &trans  &trans  &kp NUMBER_0     &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp EQUAL
-&trans                   &trans        &trans        &trans                &trans        &trans  &trans  &kp LEFT_SHIFT   &trans        &trans
-            >;
-
-            sensor-bindings = <
-                &inc_dec_kp RIGHT_ARROW LEFT_ARROW
-                &scroll_up_down
-            >;
-        };
-
-        FUNCTION {
+        symbol {
             bindings = <
 &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans   &kp F1  &kp F2  &kp F3   &kp F4  &kp F5
-&trans  &trans  &trans  &trans  &trans  &trans  &kp F13  &kp F6  &kp F7  &kp F8   &kp F9  &kp F10
-&trans  &trans  &trans  &trans  &trans  &trans  &trans   &trans  &trans  &trans   &trans  &kp F11
-&trans  &trans  &trans  &trans  &trans  &trans  &trans   &trans  &trans  &kp F12
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
             >;
 
-            sensor-bindings = <
-                &inc_dec_kp RIGHT_ARROW LEFT_ARROW
-                &scroll_up_down
-            >;
+            sensor-bindings =
+                <&inc_dec_kp RIGHT_ARROW LEFT_ARROW>,
+                <&scroll_up_down>;
         };
 
-        BT {
+        num_function {
+            bindings = <
+&trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+            >;
+
+            sensor-bindings =
+                <&inc_dec_kp RIGHT_ARROW LEFT_ARROW>,
+                <&scroll_up_down>;
+        };
+
+        bt_numpad {
             bindings = <
 &trans         &trans
 &kp LG(Q)      &kp LC(W)  &trans     &trans     &trans  &trans  &trans  &bt BT_PRV  &bt BT_NXT  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4
@@ -132,6 +156,45 @@
                 &inc_dec_kp RIGHT_ARROW LEFT_ARROW
                 &scroll_up_down
             >;
+        };
+
+        auto_mouse {
+            bindings = <
+&trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans    &trans    &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &mkp MB1  &mkp MB2  &mkp MB3  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans    &trans    &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans
+            >;
+        };
+
+        scroll {
+            bindings = <
+&trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+            >;
+
+            sensor-bindings = <
+                &inc_dec_kp RIGHT_ARROW LEFT_ARROW
+                &scroll_up_down
+            >;
+        };
+
+        auxiliary {
+            bindings = <
+&trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+            >;
+
+            sensor-bindings =
+                <&inc_dec_kp RIGHT_ARROW LEFT_ARROW>,
+                <&scroll_up_down>;
         };
     };
 };
