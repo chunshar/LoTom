@@ -89,7 +89,7 @@
             bindings = <
 &kp ESCAPE   &kp BACKSPACE
 &kp Q        &kp W          &kp E         &kp R                  &kp T        &tog 4          &tog 1               &kp Y        &kp U          &kp I      &kp O    &kp P
-&kp A        &kp S          &kp D         &kp F                  &kp G        &kp CAPS        &kp DELETE           &kp H        &kp J          &kp K      &kp L    &lt 7 SEMICOLON
+&kp A        &kp S          &kp D         &kp F                  &kp G        &kp CAPS        &kp DELETE           &kp H        &kp J          &kp K      &kp L    &lt 5 SEMICOLON
 &mt LSHFT Z  &kp X          &kp C         &kp V                  &kp B        &kp LANGUAGE_2  &kp LANGUAGE_1       &kp N        &kp M          &kp COMMA  &kp DOT  &mt RSHFT SLASH
 &kp LCTRL    &kp LEFT_GUI   &kp LEFT_ALT  &mt LEFT_SHIFT ESCAPE  &lt 2 SPACE  &lt 7 TAB       &mt RCTRL BACKSPACE  &lt 3 ENTER  &kp RIGHT_ALT  &kp RMETA
             >;
@@ -103,7 +103,7 @@
         mac {
             bindings = <
 &trans    &trans
-&trans    &trans     &trans  &trans  &trans  &trans  &tog 1              &trans  &trans  &trans     &trans  &trans
+&trans    &trans     &trans  &trans  &trans  &trans  &trans              &trans  &trans  &trans     &trans  &trans
 &trans    &trans     &trans  &trans  &trans  &trans  &trans              &trans  &trans  &trans     &trans  &trans
 &trans    &trans     &trans  &trans  &trans  &trans  &trans              &trans  &trans  &trans     &trans  &trans
 &kp LGUI  &kp LCTRL  &trans  &trans  &trans  &trans  &mt RGUI BACKSPACE  &trans  &trans  &kp RCTRL
@@ -118,7 +118,7 @@
         symbol {
             bindings = <
 &trans                  &trans
-&kp EXCLAMATION         &kp AT_SIGN  &kp HASH   &kp DOLLAR     &kp PERCENT        &none         &none   &kp CARET       &kp AMPERSAND    &kp ASTERISK      &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS
+&kp EXCLAMATION         &kp AT_SIGN  &kp HASH   &kp DOLLAR     &kp PERCENT        &trans        &trans  &kp CARET       &kp AMPERSAND    &kp ASTERISK      &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS
 &kp UNDERSCORE          &kp TILDE    &kp GRAVE  &kp SQT        &kp DOUBLE_QUOTES  &kp LS(CAPS)  &trans  &kp PLUS        &kp MINUS        &kp LEFT_BRACKET  &kp RIGHT_BRACKET     &kp COLON
 &mt LSHIFT EXCLAMATION  &kp TILDE    &kp EQUAL  &kp BACKSLASH  &kp PIPE           &trans        &trans  &kp LEFT_BRACE  &kp RIGHT_BRACE  &kp LESS_THAN     &kp GREATER_THAN      &mt RSHIFT QUESTION
 &trans                  &trans       &trans     &trans         &trans             &trans        &trans  &trans          &trans           &trans
@@ -132,8 +132,8 @@
         num_function {
             bindings = <
 &trans        &trans
-&kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp N5  &none   &none   &kp NUMBER_6  &kp N7  &kp N8  &kp N9  &kp N0
-&trans        &trans        &trans        &trans        &trans  &trans  &trans  &trans        &trans  &trans  &trans  &trans
+&kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp N5  &trans  &trans  &kp NUMBER_6  &kp N7  &kp N8  &kp N9  &kp N0
+&kp F1        &kp F2        &kp F3        &kp F4        &kp F5  &trans  &trans  &trans        &trans  &trans  &trans  &trans
 &trans        &trans        &trans        &trans        &trans  &trans  &trans  &trans        &trans  &trans  &trans  &trans
 &trans        &trans        &trans        &trans        &trans  &trans  &trans  &trans        &trans  &trans
             >;
@@ -145,11 +145,11 @@
 
         bt_numpad {
             bindings = <
-&trans         &trans
-&bt BT_PRV     &bt BT_NXT     &trans         &bt BT_CLR     &bt BT_CLR_ALL  &tog 4  &kp KP_NUMLOCK   &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp KP_MINUS  &kp KP_SLASH
-&bt BT_SEL 0   &bt BT_SEL 1   &bt BT_SEL 2   &bt BT_SEL 3   &bt BT_SEL 4    &trans  &trans           &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp KP_PLUS   &kp KP_ASTERISK
-&bt BT_DISC 0  &bt BT_DISC 1  &bt BT_DISC 2  &bt BT_DISC 3  &bt BT_DISC 4   &trans  &kp KP_NUMBER_0  &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp KP_ENTER  &kp EQUAL
-&trans         &trans         &trans         &trans         &trans          &trans  &trans           &trans           &kp KP_DOT       &kp COMMA
+&bootloader    &bootloader
+&bt BT_PRV     &bt BT_NXT     &trans         &bt BT_CLR     &bt BT_CLR_ALL  &tog 4  &kp KP_NUMLOCK  &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp KP_MINUS  &kp KP_SLASH
+&bt BT_SEL 0   &bt BT_SEL 1   &bt BT_SEL 2   &bt BT_SEL 3   &bt BT_SEL 4    &trans  &trans          &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp KP_PLUS   &kp KP_ASTERISK
+&bt BT_DISC 0  &bt BT_DISC 1  &bt BT_DISC 2  &bt BT_DISC 3  &bt BT_DISC 4   &trans  &trans          &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp KP_ENTER  &kp EQUAL
+&trans         &trans         &trans         &trans         &trans          &trans  &trans          &kp KP_NUMBER_0  &kp KP_DOT       &kp COMMA
             >;
 
             sensor-bindings = <
@@ -187,11 +187,11 @@
 
         auxiliary {
             bindings = <
-&bootloader  &bootloader
-&trans       &trans       &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans       &trans       &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans       &trans       &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans       &trans       &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans    &trans    &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &mkp MB1  &mkp MB2  &mkp MB3  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &mkp MB4  &mkp MB5  &trans    &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans
             >;
 
             sensor-bindings =
