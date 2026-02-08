@@ -103,10 +103,10 @@
         mac {
             bindings = <
 &trans    &trans
-&trans    &trans     &trans  &trans  &trans  &trans  &trans              &trans  &trans  &trans     &trans  &trans
-&trans    &trans     &trans  &trans  &trans  &trans  &trans              &trans  &trans  &trans     &trans  &trans
-&trans    &trans     &trans  &trans  &trans  &trans  &trans              &trans  &trans  &trans     &trans  &trans
-&kp LGUI  &kp LCTRL  &trans  &trans  &trans  &trans  &mt RGUI BACKSPACE  &trans  &trans  &kp RCTRL
+&trans    &trans     &trans  &trans  &trans  &trans     &trans              &trans  &trans  &trans     &trans  &trans
+&trans    &trans     &trans  &trans  &trans  &trans     &trans              &trans  &trans  &trans     &trans  &lt 8 SEMICOLON
+&trans    &trans     &trans  &trans  &trans  &trans     &trans              &trans  &trans  &trans     &trans  &trans
+&kp LGUI  &kp LCTRL  &trans  &trans  &trans  &lt 8 TAB  &mt RGUI BACKSPACE  &trans  &trans  &kp RCTRL
             >;
 
             sensor-bindings = <
@@ -185,13 +185,27 @@
             >;
         };
 
-        auxiliary {
+        aux_win {
             bindings = <
-&trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans    &trans    &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &mkp MB1  &mkp MB2  &mkp MB3  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &mkp MB4  &mkp MB5  &trans    &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans
+&trans      &trans
+&kp ESCAPE  &kp C_BRI_DEC     &trans          &kp C_BRI_INC    &trans  &trans  &trans              &kp PRINTSCREEN  &kp LC(LG(LEFT))  &kp LC(LG(D))  &kp LC(LG(RIGHT))  &kp LC(LG(F4))
+&kp TAB     &kp C_VOL_DN      &kp C_MUTE      &kp C_VOLUME_UP  &trans  &trans  &kp LA(LC(DELETE))  &trans           &mkp MB1          &mkp MB2       &mkp MB3           &kp ENTER
+&kp LSHIFT  &kp LG(KP_MINUS)  &kp LG(ESCAPE)  &kp LG(KP_PLUS)  &trans  &trans  &kp LC(LS(ESCAPE))  &trans           &mkp MB4          &mkp MB5       &trans             &kp RSHIFT
+&trans      &trans            &trans          &trans           &trans  &trans  &trans              &trans           &trans            &trans
+            >;
+
+            sensor-bindings =
+                <&inc_dec_kp RIGHT_ARROW LEFT_ARROW>,
+                <&scroll_up_down>;
+        };
+
+        aux_mac {
+            bindings = <
+&trans      &trans
+&kp ESCAPE  &kp C_BRI_DEC     &trans          &kp C_BRI_INC    &trans  &trans  &trans              &kp PRINTSCREEN  &kp LC(LEFT)  &kp LC(LG(D))  &kp LC(RIGHT)  &kp LC(LG(F4))
+&kp TAB     &kp C_VOL_DN      &kp C_MUTE      &kp C_VOLUME_UP  &trans  &trans  &kp LA(LC(DELETE))  &trans           &mkp MB1      &mkp MB2       &mkp MB3       &kp ENTER
+&kp LSHIFT  &kp LG(KP_MINUS)  &kp LG(ESCAPE)  &kp LG(KP_PLUS)  &trans  &trans  &kp LC(LS(ESCAPE))  &trans           &mkp MB4      &mkp MB5       &trans         &kp RSHIFT
+&trans      &trans            &trans          &trans           &trans  &trans  &trans              &trans           &trans        &trans
             >;
 
             sensor-bindings =
