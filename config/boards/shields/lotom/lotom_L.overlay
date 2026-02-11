@@ -86,7 +86,7 @@
     x-codes = <INPUT_REL_X>;
 	y-codes = <INPUT_REL_Y>;
 	xy-to-scroll-enabled;
-}
+};
 
 // I2C設定 (OLED用)
 &pinctrl {
