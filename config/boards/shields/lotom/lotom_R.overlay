@@ -74,7 +74,7 @@
 };
 
 &trackball_listener {
-    status = "okay";
+    status = "disabled";
     input-processors = <&zip_temp_layer 1 400>;
 
     scroll {
