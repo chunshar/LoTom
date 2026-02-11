@@ -82,6 +82,12 @@
     require-prior-idle-ms = <400>;
 };
 
+&scroll_runtime_input_processor {
+    x-codes = <INPUT_REL_X>;
+	y-codes = <INPUT_REL_Y>;
+	xy-to-scroll-enabled;
+}
+
 // I2C設定 (OLED用)
 &pinctrl {
     i2c1_default: i2c1_default {
